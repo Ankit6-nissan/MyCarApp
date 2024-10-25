@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    coreApp="true"
+    package="com.nissanvit.mycarapp">
+
+    <uses-feature
+        android:name="android.hardware.type.automotive"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.car.permission.CAR_DIAGNOSTIC_READ_ALL"/>
+    <uses-permission android:name="android.car.permission.CAR_DIAGNOSTIC_CLEAR"/>
+    <uses-permission
+        android:name="android.permission.WRITE_SETTINGS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.FEATURE_AUTOMOTIVE" />
+    <uses-permission android:name="android.hardware.type.automotive" />
+    <uses-permission android:name="android.car.permission.CAR_INFO" /> <!-- Permission necessary to use CarInfoManager -->
+    <uses-permission android:name="android.car.permission.READ_CAR_DISPLAY_UNITS" /> <!-- read and write display units for distance, fuel volume, tire pressure and ev battery -->
+    <!-- change car audio volume through CarAudioManager -->
+    <uses-permission android:name="android.car.permission.CONTROL_CAR_DOORS" />
+    <uses-permission android:name="android.car.permission.READ_CAR_INTERIOR_LIGHTS" />
+    <uses-permission android:name="android.car.permission.CAR_ENGINE_DETAILED"/>
+    <uses-permission android:name="android.car.permission.CONTROL_EXTERIOR_LIGHTS" />
+    <uses-permission android:name="android.car.permission.CAR_EXTERIOR_LIGHTS" />
+    <uses-permission android:name="android.car.permission.PERMISSION_POWERTRAIN"/>
+    <uses-permission android:name="android.car.permission.CAR_DRIVING_STATE" />
+    <uses-permission android:name="android.car.permission.CAR_UX_RESTRICTIONS_CONFIGURATION" />
+    <uses-permission android:name="android.car.permission.CAR_POWERTRAIN" /> <!-- GEAR_SELECTION need!! -->
+    <uses-permission android:name="android.car.permission.CAR_ENERGY" />  <!-- EV_BATTERY_LEVEL access car's energy information -->
+    <uses-permission android:name="android.car.permission.CAR_MILEAGE" />
+
+    <!-- dynamic live changing -->
+    <uses-permission android:name="android.car.permission.READ_CAR_STEERING" />
+    <uses-permission android:name="android.car.permission.CAR_SPEED" /> <!-- PERF_VEHICLE_SPEED -->
+    <uses-permission android:name="android.car.permission.CAR_DYNAMICS_STATE" />
+
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <uses-feature android:name="android.hardware.location.gps" />
+
+
+    <uses-feature
+        android:name="android.hardware.wifi"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.screen.portrait"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.screen.landscape"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+
+    <application
+        android:allowBackup="true"
+        android:appCategory="audio"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.DayNight">
+        <activity
+            android:name=".MainActivity2"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="androidx.car.app.category.NAVIGATION" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data
+                android:name="distractionOptimized" android:value="true" />
+            <meta-data
+                android:name="com.android.automotive"
+                android:value="string"
+                tools:replace="android:value" />
+            <meta-data
+                android:name="androidx.car.app.minCarApiLevel"  android:value="1" />
+        </activity>
+
+        <service android:name="com.nissanvit.mycarapp.mainBackgroundService.mainBackService" />
+
+    </application>
+
+</manifest>

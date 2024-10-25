@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">MyCarApp</string>
+    <string name="buttonLT">LT</string>
+    <string name="buttonRT">RT</string>
+
+    <string name="logTagMain">log_MainActivity</string>
+    <string name="logTagConnection">log_Connection</string>
+    <string name="logTagMotion">log_Motion</string>
+    <string name="title">Android Steering Wheel</string>
+    <string name="radioButtonWifi">Wifi</string>
+    <string name="radioButtonTitle">Connection Type</string>
+    <string name="buttonConnect">Connect</string>
+    <string name="buttonDisconnect">Disconnect</string>
+
+    <string name="controlSteeringTitle">Steering Control</string>
+    <string name="controlSteeringAngleHorizontal">Horizontal Angle</string>
+    <string name="controlSteeringAngleVertical">Vertical Angle</string>
+
+    <string-array name="tab_A">
+        <item>Item 1A</item>
+        <item>Item 1B</item>
+    </string-array>
+
+    <string-array name="tab_B">
+        <item>Item 2A</item>
+    </string-array>
+
+
+</resources>

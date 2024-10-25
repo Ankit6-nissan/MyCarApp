@@ -1,0 +1,121 @@
+plugins {
+    id 'com.android.application'
+    // Add the Google services Gradle plugin
+    id 'com.google.gms.google-services'
+}
+
+//Add the keystore information from your properties file before the android block
+def keystoreProperties = new Properties()
+def keystorePropertiesFile = rootProject.file('key.properties')
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
+
+android {
+    compileSdk 32
+    defaultConfig {
+        applicationId "com.nissanvit.mycarapp"
+        minSdk 30
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+        setProperty("archivesBaseName", "CarAPI")
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    signingConfigs {
+        release {
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            //Use the signing configuration we just defined
+            signingConfig signingConfigs.release
+        }
+    }
+    useLibrary 'android.car' //need!
+}
+
+dependencies {
+    implementation 'com.google.firebase:firebase-firestore:24.1.0'
+    def lifecycle_version = "2.5.1"
+    def arch_version = "2.1.0"
+
+    //classpath 'com.google.gms:google-services:4.3.15'
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation files('libs/android.car.jar')
+
+    implementation 'androidx.appcompat:appcompat:1.4.0'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
+    implementation files('libs/android.car.jar') //need!
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+
+    implementation "androidx.car.app:app:1.2.0"
+    // For Android Auto specific functionality : Error!!
+    //implementation "androidx.car.app:app-projected:1.2.0"
+
+    // For Android Automotive specific functionality
+    implementation "androidx.car.app:app-automotive:1.2.0"
+    // For testing
+    testImplementation "androidx.car.app:app-testing:1.2.0"
+    implementation "androidx.car.app:app-automotive"
+
+
+    // ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    // ViewModel utilities for Compose
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_version"
+    // LiveData
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+    // Lifecycles only (without ViewModel or LiveData)
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
+
+    // Saved state module for ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version"
+
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0' //for ViewModelProviders
+
+
+    // Import the Firebase BoM
+    implementation platform('com.google.firebase:firebase-bom:31.3.0')
+
+    // TODO: Add the dependencies for Firebase products you want to use
+    // When using the BoM, don't specify versions in Firebase dependencies
+    implementation 'com.google.firebase:firebase-analytics'
+
+    // Add the dependencies for any other desired Firebase products
+    // https://firebase.google.com/docs/android/setup#available-libraries
+
+    //EventBus
+    implementation 'org.greenrobot:eventbus:3.1.1'
+
+
+    //location:
+    implementation "com.google.android.gms:play-services-location:21.0.1"
+
+    //open xc
+    implementation 'com.google.guava:guava:24.1-android'
+    /*implementation 'com.openxcplatform:library:7.0.6'*/
+
+    implementation 'com.google.firebase:firebase-auth:10.2.0'
+    implementation 'com.google.firebase:firebase-core:10.2.0'
+
+}
+

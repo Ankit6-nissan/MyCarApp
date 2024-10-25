@@ -1,0 +1,76 @@
+{
+  "project_info": {
+    "project_number": "1053910813117",
+    "project_id": "project-edaa0",
+    "storage_bucket": "project-edaa0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1053910813117:android:40cda74508c07ed21cead4",
+        "android_client_info": {
+          "package_name": "com.nissanvit.mycarapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1053910813117-sb0sv3nh6b0qeohdqid193ok9k1iisve.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nissanvit.mycarapp",
+            "certificate_hash": "d0753cd2f949776faef931de0add54248bad1009"
+          }
+        },
+        {
+          "client_id": "1053910813117-n461mpopljdtr6q1buf7091kcdhi93ol.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxOE-LHd37Wn65k9GSFeaS2UnB8jXtgq4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1053910813117-n461mpopljdtr6q1buf7091kcdhi93ol.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1053910813117:android:d3df1b8cc9d148791cead4",
+        "android_client_info": {
+          "package_name": "ru.embersoft.favoritelist"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1053910813117-n461mpopljdtr6q1buf7091kcdhi93ol.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxOE-LHd37Wn65k9GSFeaS2UnB8jXtgq4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1053910813117-n461mpopljdtr6q1buf7091kcdhi93ol.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

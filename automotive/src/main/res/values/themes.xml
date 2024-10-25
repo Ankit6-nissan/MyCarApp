@@ -1,0 +1,18 @@
+<resources>
+    <style name="Theme.MyCarApp" parent="android:Theme.Material.Light.DarkActionBar" />
+
+    <style name="MyTabLayoutTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">38dp</item>
+    </style>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#0076AC</item>
+        <item name="colorPrimaryDark">#013B70</item>
+        <item name="colorAccent">#D81B60</item>
+
+        <item name="android:colorBackground">#FFFFFF</item>
+
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+
+</resources>
